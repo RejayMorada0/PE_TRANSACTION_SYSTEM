@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2023 at 08:49 AM
+-- Generation Time: Jul 12, 2023 at 09:05 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -36,6 +36,13 @@ CREATE TABLE `borrowtab` (
   `time_end` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `borrowtab`
+--
+
+INSERT INTO `borrowtab` (`borrowno`, `studentdetails`, `equipment`, `status`, `time_start`, `time_end`) VALUES
+(3, 'GFNBNHMVJHKJ ', 'BASKETBALL', 'RETURNED', '2023-07-12 07:02:58', '2023-07-12 07:02:58');
+
 -- --------------------------------------------------------
 
 --
@@ -52,6 +59,13 @@ CREATE TABLE `ordertab` (
   `totalprice` float NOT NULL,
   `status` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ordertab`
+--
+
+INSERT INTO `ordertab` (`ID`, `studentdetails`, `tssize`, `tsquantity`, `pantssize`, `pantsquantity`, `totalprice`, `status`) VALUES
+(1, 'FGFHBVNBMNB,', 'T-SHIRT - L', 1, 'PANTS - M', 1, 200, 'RECIEVED ORDER');
 
 -- --------------------------------------------------------
 
@@ -80,6 +94,25 @@ CREATE TABLE `pricetab` (
   `tshirt_size_and_pants_size` varchar(45) NOT NULL,
   `prices` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pricetab`
+--
+
+INSERT INTO `pricetab` (`tshirt_size_and_pants_size`, `prices`) VALUES
+('NOT AVAIL', 0),
+('PANTS - L', 100),
+('PANTS - M', 100),
+('PANTS - S', 100),
+('PANTS - XL', 100),
+('PANTS - XS', 100),
+('PANTS - XXL', 100),
+('T-SHIRT - L', 100),
+('T-SHIRT - M', 100),
+('T-SHIRT - S', 100),
+('T-SHIRT - XL', 100),
+('T-SHIRT - XS', 100),
+('T-SHIRT - XXL', 100);
 
 -- --------------------------------------------------------
 
@@ -141,19 +174,19 @@ ALTER TABLE `reservetab`
 -- AUTO_INCREMENT for table `borrowtab`
 --
 ALTER TABLE `borrowtab`
-  MODIFY `borrowno` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `borrowno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ordertab`
 --
 ALTER TABLE `ordertab`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `reservetab`
 --
 ALTER TABLE `reservetab`
-  MODIFY `reserve_no` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `reserve_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
