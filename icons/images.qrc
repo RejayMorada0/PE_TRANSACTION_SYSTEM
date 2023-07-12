@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>MIT-Sports_Soccer.png</file>
+  </qresource>
+</RCC>
