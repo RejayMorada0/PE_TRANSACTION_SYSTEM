@@ -1296,16 +1296,20 @@ class Ui(QtWidgets.QMainWindow):
             self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(i[3])))
             
             aaa = i[4]
-            self.mycursor.execute("SELECT DATE_FORMAT (time_start, '%D %M %Y %r') \
-                FROM borrowtab WHERE time_start = %s", (aaa, ))
+            self.mycursor.execute("SELECT DATE_FORMAT(`time_start`, '%D %M %Y %r') FROM `borrowtab` WHERE `time_start` = %s", (aaa,))
+
+            # self.mycursor.execute("SELECT DATE_FORMAT (time_start, '%D %M %Y %r') \
+            #     FROM borrowtab WHERE time_start = %s", (aaa, ))
             times = self.mycursor.fetchall()
             form_time = str(times)[3:-4]
             self.tableWidget.setItem(row, 4, QtWidgets.QTableWidgetItem((form_time)))
 
 
             aaa = i[5]
-            self.mycursor.execute("SELECT DATE_FORMAT (time_end, '%D %M %Y %r') \
-                FROM borrowtab WHERE time_end = %s OR NOT NULL", (aaa, ))
+            self.mycursor.execute("SELECT DATE_FORMAT(time_end, '%D %M %Y %r') FROM borrowtab WHERE time_end = %s OR time_end IS NOT NULL", (aaa,))
+
+            # self.mycursor.execute("SELECT DATE_FORMAT (time_end, '%D %M %Y %r') \
+            #     FROM borrowtab WHERE time_end = %s OR NOT NULL", (aaa, ))
             times = self.mycursor.fetchall()
             form_time = str(times)[3:-4]        
             self.tableWidget.setItem(row, 5, QtWidgets.QTableWidgetItem((form_time)))
@@ -1439,8 +1443,10 @@ class Ui(QtWidgets.QMainWindow):
             self.tableWidget_5.setItem(row, 6, QtWidgets.QTableWidgetItem(str(i[6])))
 
             aaa = i[3]
-            self.mycursor.execute("SELECT DATE_FORMAT (date,'%b %d, %Y') \
-                FROM reservetab WHERE date = %s", (aaa, ))
+            self.mycursor.execute("SELECT DATE_FORMAT(`date`, '%b %d, %Y') FROM `reservetab` WHERE `date` = %s", (aaa,))
+
+            # self.mycursor.execute("SELECT DATE_FORMAT (date,'%b %d, %Y') \
+            #     FROM reservetab WHERE date = %s", (aaa, ))
             dates = self.mycursor.fetchall()
             for j in dates:
                 form_time = str(j)[2:-3]
